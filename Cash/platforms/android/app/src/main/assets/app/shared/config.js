@@ -1,3 +1,3 @@
 module.exports = {
-    apiUrl: "http://200.51.94.150:3000/api"
+    apiUrl: "https://api.pulpos.me:8337/sales/"
 };

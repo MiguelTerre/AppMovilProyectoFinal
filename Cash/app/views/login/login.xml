@@ -1,12 +1,15 @@
-<Page loaded="loaded">
-<Page.actionBar>
-    <ActionBar title="Sign in"></ActionBar>
-</Page.actionBar>
-    <StackLayout orientation="vertical">
-        <Image src="res://logo" stretch="none" horizontalAlignment="center" ></Image>
-        <TextField id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
-        <TextField id="password" secure="true" text="{{ password }}" hint="Password" />
-        <Button text="Sign in" tap="signIn" />
-        <Button text="Sign up for Groceries" class="link" tap="register" />
+<Page
+    loaded="loaded" actionBarHidden="true" class="fullscreen">
+    <StackLayout orientation="vertical" class="form">
+        <StackLayout orientation="horizontal" horizontalAlignment="center" class="logos">
+            <Image src="~/images/logo_green_eat.png" stretch="aspectFill" />
+            <Image src="~/images/logo_inside.png" stretch="aspectFill" />
+            <Image src="~/images/logo_tea.png" stretch="aspectFill" />
+        </StackLayout>
+        <Label text="USUARIO" textWrap="true" />
+        <TextField id="username" text="{{ username }}" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+        <Label text="PASSWORD" textWrap="true" />
+        <TextField id="password" secure="true" text="{{ password }}" />
+        <Button text="INGRESAR" tap="signIn"></Button>
     </StackLayout>
 </Page>

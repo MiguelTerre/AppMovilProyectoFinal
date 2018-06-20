@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      "nativescript-screen-orientation@2.0.0",
+      "C:\\__sales-ui\\development\\0.0.0\\src"
+    ]
+  ],
+  "_from": "nativescript-screen-orientation@2.0.0",
+  "_id": "nativescript-screen-orientation@2.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-GOiyBe3+6yHKTMeeWPqh/0b2fjI=",
+  "_location": "/nativescript-screen-orientation",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nativescript-screen-orientation@2.0.0",
+    "name": "nativescript-screen-orientation",
+    "escapedName": "nativescript-screen-orientation",
+    "rawSpec": "2.0.0",
+    "saveSpec": null,
+    "fetchSpec": "2.0.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nativescript-screen-orientation/-/nativescript-screen-orientation-2.0.0.tgz",
+  "_spec": "2.0.0",
+  "_where": "C:\\__sales-ui\\development\\0.0.0\\src",
+  "author": {
+    "name": "Batheja Sumeet",
+    "email": "sumeet@videospike.com"
+  },
+  "bugs": {
+    "url": "https://github.com/VideoSpike/nativescript-screen-orientation/issues"
+  },
+  "dependencies": {},
+  "description": "A plugin to force change the orientation of a page programmatically in NativeScript. Supports both Android and iOS.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "08ed7affa437b0e483d5ea0746c668bbbe101b52",
+    "tarball": "https://registry.npmjs.org/nativescript-screen-orientation/-/nativescript-screen-orientation-1.0.2.tgz"
+  },
+  "gitHead": "6e39893facf3b481381b1d5432a9bd7027ba1996",
+  "homepage": "https://github.com/VideoSpike/nativescript-screen-orientation",
+  "keywords": [
+    "nativescript",
+    "orientation-change",
+    "force-orientation",
+    "lock-orientation"
+  ],
+  "license": "MIT",
+  "main": "screen-orientation",
+  "maintainers": [
+    {
+      "name": "bathejasumeet",
+      "email": "sumeet@videospike.com"
+    }
+  ],
+  "name": "nativescript-screen-orientation",
+  "nativescript": {
+    "platforms": {
+      "ios": "1.5.0",
+      "android": "1.5.0"
+    }
+  },
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VideoSpike/nativescript-screen-orientation.git"
+  },
+  "scripts": {},
+  "typings": "screen-orientation.d.ts",
+  "version": "2.0.0"
+}

@@ -41,14 +41,14 @@ var UISearchBarDelegateImpl = (function (_super) {
         }
         owner._emit(search_bar_common_1.SearchBarBase.submitEvent);
     };
+    UISearchBarDelegateImpl.ObjCProtocols = [UISearchBarDelegate];
     return UISearchBarDelegateImpl;
 }(NSObject));
-UISearchBarDelegateImpl.ObjCProtocols = [UISearchBarDelegate];
 var SearchBar = (function (_super) {
     __extends(SearchBar, _super);
     function SearchBar() {
         var _this = _super.call(this) || this;
-        _this.nativeView = _this._ios = UISearchBar.new();
+        _this.nativeViewProtected = _this._ios = UISearchBar.new();
         _this._delegate = UISearchBarDelegateImpl.initWithOwner(new WeakRef(_this));
         return _this;
     }

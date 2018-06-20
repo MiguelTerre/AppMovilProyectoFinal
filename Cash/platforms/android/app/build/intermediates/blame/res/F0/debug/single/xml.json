@@ -1,6 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\provider_paths.xml",
-        "source": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\src\\F0\\res\\xml\\provider_paths.xml"
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_dark_selected.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\fecd1c6e39d35fd3f9e67f606b4f98cb180c9171\\output\\res\\xml\\chart_palettes_dark_selected.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_default_light.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\fecd1c6e39d35fd3f9e67f606b4f98cb180c9171\\output\\res\\xml\\chart_palettes_default_light.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_light_selected.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\fecd1c6e39d35fd3f9e67f606b4f98cb180c9171\\output\\res\\xml\\chart_palettes_light_selected.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_default_dark.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\fecd1c6e39d35fd3f9e67f606b4f98cb180c9171\\output\\res\\xml\\chart_palettes_default_dark.xml"
     }
 ]

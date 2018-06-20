@@ -1,0 +1,102 @@
+.MainStack {
+    background-color: rgb(47, 55, 68);
+}
+
+StackLayout{
+    background:#223249;   
+
+}
+.PageTitle {
+    background-color:  #079079;
+    color:white;
+    margin: 0;
+    padding: 10;
+    text-align: center;
+    font-size: 18;
+}
+
+#lblMesAnioActual {
+    color:white;
+    margin:12;
+    font-size: 18;
+    width: 200;
+    text-align: center;
+}
+
+.lblWeekDay{
+    text-align: center;
+    color:white;
+    background-color: #315C71;
+    margin: 3;
+}
+
+.btnMonth {
+    background-color: #F7CA43;
+    color: #1B2536;
+    font-size: 16;
+    margin: 7;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 8;
+    padding-right: 8;
+    border-radius: 5%;
+    height: 35;
+}
+
+.btnCalendarDay {
+    background-color: white;
+    border-radius: 10%;
+    border-color: #89919D;
+    border-width: 1;
+    padding: 1;
+    margin: 2;
+    height: 65;
+}
+
+.btnSelectedDate{
+    background-color: #F7CA43;
+}
+
+
+.btnTodayDate{
+    background-color: #ffe492;
+}
+
+.dayClosed {
+    color:#29bfb0;
+}
+
+.dayOpened {
+    color: #ff9728;
+}
+
+.spnDayNumber {
+    font-size:20;
+    font-weight: bold;
+}
+
+.spnDayStatus {
+    font-size:10;
+}
+    
+/*
+.spnDayNumberClosed{
+   color: #079079;
+   font-size:20;
+}
+
+.spnDayNumberOpen{ 
+    color: #F7CA43;
+    font-size:20;
+}
+
+.spnDayStatusClosed{
+    color: #079079;
+    font-size:10;
+ }
+ 
+ .spnDayStatusOpen{ 
+     color: #F7CA43;
+     font-size:10;
+ }
+*/

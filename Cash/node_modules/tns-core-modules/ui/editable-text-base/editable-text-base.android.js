@@ -24,7 +24,7 @@ function initializeEditTextListeners() {
         };
         EditTextListenersImpl.prototype.afterTextChanged = function (editable) {
             var owner = this.owner;
-            if (!owner || owner._inputTypeChange) {
+            if (!owner || owner._changeFromCode) {
                 return;
             }
             switch (owner.updateTextTrigger) {
@@ -48,6 +48,7 @@ function initializeEditTextListeners() {
                     clearTimeout(dismissKeyboardTimeoutId);
                     dismissKeyboardTimeoutId = undefined;
                 }
+                owner.notify({ eventName: EditableTextBase.focusEvent, object: owner });
             }
             else {
                 if (owner._dirtyTextAccumulator || owner._dirtyTextAccumulator === "") {
@@ -75,17 +76,19 @@ function initializeEditTextListeners() {
                     owner.dismissSoftInput();
                 }
                 owner._onReturnPress();
+                return true;
             }
-            if (actionId === android.view.inputmethod.EditorInfo.IME_ACTION_NEXT) {
+            if (actionId === android.view.inputmethod.EditorInfo.IME_ACTION_NEXT
+                || actionId === android.view.inputmethod.EditorInfo.IME_ACTION_PREVIOUS) {
                 owner._onReturnPress();
             }
             return false;
         };
+        EditTextListenersImpl = __decorate([
+            Interfaces([android.text.TextWatcher, android.view.View.OnFocusChangeListener, android.widget.TextView.OnEditorActionListener])
+        ], EditTextListenersImpl);
         return EditTextListenersImpl;
     }(java.lang.Object));
-    EditTextListenersImpl = __decorate([
-        Interfaces([android.text.TextWatcher, android.view.View.OnFocusChangeListener, android.widget.TextView.OnEditorActionListener])
-    ], EditTextListenersImpl);
     EditTextListeners = EditTextListenersImpl;
 }
 var EditableTextBase = (function (_super) {
@@ -99,7 +102,6 @@ var EditableTextBase = (function (_super) {
         initializeEditTextListeners();
         var editText = new android.widget.EditText(this._context);
         this._configureEditText(editText);
-        this._inputType = editText.getInputType();
         var listeners = new EditTextListeners(this);
         editText.addTextChangedListener(listeners);
         editText.setOnFocusChangeListener(listeners);
@@ -109,34 +111,37 @@ var EditableTextBase = (function (_super) {
     };
     EditableTextBase.prototype.initNativeView = function () {
         _super.prototype.initNativeView.call(this);
-        var nativeView = this.nativeView;
+        var nativeView = this.nativeViewProtected;
         nativeView.listener.owner = this;
-        this._keyListenerCache = nativeView.getKeyListener();
+        this._inputType = nativeView.getInputType();
     };
-    EditableTextBase.prototype._disposeNativeView = function (force) {
-        var nativeView = this.nativeView;
-        nativeView.listener.owner = null;
-        nativeView.setInputType(this._inputType);
+    EditableTextBase.prototype.disposeNativeView = function () {
+        _super.prototype.disposeNativeView.call(this);
+        this.nativeViewProtected.listener.owner = null;
         this._keyListenerCache = null;
     };
+    EditableTextBase.prototype.resetNativeView = function () {
+        _super.prototype.resetNativeView.call(this);
+        this.nativeViewProtected.setInputType(this._inputType);
+    };
     EditableTextBase.prototype.dismissSoftInput = function () {
-        utils_1.ad.dismissSoftInput(this.nativeView);
+        utils_1.ad.dismissSoftInput(this.nativeViewProtected);
     };
     EditableTextBase.prototype.focus = function () {
         var result = _super.prototype.focus.call(this);
         if (result) {
-            utils_1.ad.showSoftInput(this.nativeView);
+            utils_1.ad.showSoftInput(this.nativeViewProtected);
         }
         return result;
     };
     EditableTextBase.prototype._setInputType = function (inputType) {
-        var nativeView = this.nativeView;
+        var nativeView = this.nativeViewProtected;
         try {
-            this._inputTypeChange = true;
+            this._changeFromCode = true;
             nativeView.setInputType(inputType);
         }
         finally {
-            this._inputTypeChange = false;
+            this._changeFromCode = false;
         }
         var listener = nativeView.getKeyListener();
         if (listener) {
@@ -147,28 +152,19 @@ var EditableTextBase = (function (_super) {
         }
     };
     EditableTextBase.prototype[editable_text_base_common_1.textProperty.getDefault] = function () {
-        return this.nativeView.getText();
+        return -1;
     };
     EditableTextBase.prototype[editable_text_base_common_1.textProperty.setNative] = function (value) {
-        var text = (value === null || value === undefined) ? '' : value.toString();
-        this.nativeView.setText(text, android.widget.TextView.BufferType.EDITABLE);
+        try {
+            this._changeFromCode = true;
+            this._setNativeText(value === -1);
+        }
+        finally {
+            this._changeFromCode = false;
+        }
     };
     EditableTextBase.prototype[editable_text_base_common_1.keyboardTypeProperty.getDefault] = function () {
-        var inputType = this.nativeView.getInputType();
-        switch (inputType) {
-            case android.text.InputType.TYPE_CLASS_DATETIME | android.text.InputType.TYPE_DATETIME_VARIATION_NORMAL:
-                return "datetime";
-            case android.text.InputType.TYPE_CLASS_PHONE:
-                return "phone";
-            case android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_VARIATION_NORMAL | android.text.InputType.TYPE_NUMBER_FLAG_SIGNED | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL:
-                return "number";
-            case android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_URI:
-                return "url";
-            case android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS:
-                return "email";
-            default:
-                return inputType.toString();
-        }
+        return this.nativeViewProtected.getInputType();
     };
     EditableTextBase.prototype[editable_text_base_common_1.keyboardTypeProperty.setNative] = function (value) {
         var newInputType;
@@ -189,19 +185,13 @@ var EditableTextBase = (function (_super) {
                 newInputType = android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;
                 break;
             default:
-                var inputType = +value;
-                if (!isNaN(inputType)) {
-                    newInputType = inputType;
-                }
-                else {
-                    newInputType = android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_NORMAL;
-                }
+                newInputType = value;
                 break;
         }
         this._setInputType(newInputType);
     };
     EditableTextBase.prototype[editable_text_base_common_1.returnKeyTypeProperty.getDefault] = function () {
-        var ime = this.nativeView.getImeOptions();
+        var ime = this.nativeViewProtected.getImeOptions();
         switch (ime) {
             case android.view.inputmethod.EditorInfo.IME_ACTION_DONE:
                 return "done";
@@ -245,21 +235,22 @@ var EditableTextBase = (function (_super) {
                 }
                 break;
         }
-        this.nativeView.setImeOptions(newImeOptions);
-    };
-    EditableTextBase.prototype[editable_text_base_common_1.editableProperty.getDefault] = function () {
-        return true;
+        this.nativeViewProtected.setImeOptions(newImeOptions);
     };
     EditableTextBase.prototype[editable_text_base_common_1.editableProperty.setNative] = function (value) {
+        var nativeView = this.nativeViewProtected;
         if (value) {
-            this.nativeView.setKeyListener(this._keyListenerCache);
+            nativeView.setKeyListener(this._keyListenerCache);
         }
         else {
-            this.nativeView.setKeyListener(null);
+            if (!this._keyListenerCache) {
+                this._keyListenerCache = nativeView.getKeyListener();
+            }
+            nativeView.setKeyListener(null);
         }
     };
     EditableTextBase.prototype[editable_text_base_common_1.autocapitalizationTypeProperty.getDefault] = function () {
-        var inputType = this.nativeView.getInputType();
+        var inputType = this.nativeViewProtected.getInputType();
         if ((inputType & android.text.InputType.TYPE_TEXT_FLAG_CAP_WORDS) === android.text.InputType.TYPE_TEXT_FLAG_CAP_WORDS) {
             return "words";
         }
@@ -274,7 +265,7 @@ var EditableTextBase = (function (_super) {
         }
     };
     EditableTextBase.prototype[editable_text_base_common_1.autocapitalizationTypeProperty.setNative] = function (value) {
-        var inputType = this.nativeView.getInputType();
+        var inputType = this.nativeViewProtected.getInputType();
         inputType = inputType & ~28672;
         switch (value) {
             case "none":
@@ -301,14 +292,14 @@ var EditableTextBase = (function (_super) {
         this._setInputType(inputType);
     };
     EditableTextBase.prototype[editable_text_base_common_1.autocorrectProperty.getDefault] = function () {
-        var autocorrect = this.nativeView.getInputType();
+        var autocorrect = this.nativeViewProtected.getInputType();
         if ((autocorrect & android.text.InputType.TYPE_TEXT_FLAG_AUTO_CORRECT) === android.text.InputType.TYPE_TEXT_FLAG_AUTO_CORRECT) {
             return true;
         }
         return false;
     };
     EditableTextBase.prototype[editable_text_base_common_1.autocorrectProperty.setNative] = function (value) {
-        var inputType = this.nativeView.getInputType();
+        var inputType = this.nativeViewProtected.getInputType();
         switch (value) {
             case true:
                 inputType = inputType | android.text.InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE;
@@ -326,23 +317,38 @@ var EditableTextBase = (function (_super) {
         this._setInputType(inputType);
     };
     EditableTextBase.prototype[editable_text_base_common_1.hintProperty.getDefault] = function () {
-        return this.nativeView.getHint();
+        return this.nativeViewProtected.getHint();
     };
     EditableTextBase.prototype[editable_text_base_common_1.hintProperty.setNative] = function (value) {
-        this.nativeView.setHint(value + '');
+        var text = (value === null || value === undefined) ? null : value.toString();
+        this.nativeViewProtected.setHint(text);
     };
     EditableTextBase.prototype[editable_text_base_common_1.placeholderColorProperty.getDefault] = function () {
-        return this.nativeView.getHintTextColors();
+        return this.nativeViewProtected.getHintTextColors();
     };
     EditableTextBase.prototype[editable_text_base_common_1.placeholderColorProperty.setNative] = function (value) {
-        if (value instanceof editable_text_base_common_1.Color) {
-            this.nativeView.setHintTextColor(value.android);
-        }
-        else {
-            this.nativeView.setHintTextColor(value);
-        }
+        var color = value instanceof editable_text_base_common_1.Color ? value.android : value;
+        this.nativeViewProtected.setHintTextColor(color);
     };
     EditableTextBase.prototype[editable_text_base_common_1.textTransformProperty.setNative] = function (value) {
+    };
+    EditableTextBase.prototype[editable_text_base_common_1.maxLengthProperty.setNative] = function (value) {
+        if (value === Number.POSITIVE_INFINITY) {
+            this.nativeViewProtected.setFilters([]);
+        }
+        else {
+            var lengthFilter = new android.text.InputFilter.LengthFilter(value);
+            var filters = this.nativeViewProtected.getFilters();
+            var newFilters = [];
+            for (var i = 0; i < filters.length; i++) {
+                var filter = filters[i];
+                if (!(filter instanceof android.text.InputFilter.LengthFilter)) {
+                    newFilters.push(filter);
+                }
+            }
+            newFilters.push(lengthFilter);
+            this.nativeViewProtected.setFilters(newFilters);
+        }
     };
     return EditableTextBase;
 }(editable_text_base_common_1.EditableTextBase));

@@ -1,0 +1,146 @@
+.MainStack {
+    background-color: rgb(235, 235, 235);
+}
+
+.SettingsStack{
+    background-color: #1B2636;
+    text-align: center;
+}
+
+button {
+    background-color: #F7CA43;
+    color: #1B2536;
+    font-size: 16;
+    margin: 7;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 8;
+    padding-right: 8;
+    border-radius: 5%;
+    height: 35;
+}
+
+.PageTitle {
+    background-color:  #079079;
+    color:white;
+    margin: 0;
+    padding: 10;
+    text-align: center;
+    font-size: 18;
+}
+
+.ChildStack {
+    margin-top: 15;    
+    margin-left: 15;
+    margin-right: 15;
+    margin-bottom: 0;
+}
+
+.BlockContainer {
+    background-color: white;
+    margin: 5;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.BlockTitle {
+    color: black;
+    font-size: 14;
+    padding-top: 8;
+}
+
+.BlockData {
+    padding-top: 4;
+    padding-bottom: 8;
+    font-size: 36;
+    font-weight: bold;
+}
+
+.FranjaTitle {
+    background-color: white;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+    padding-left: 15;
+    padding-top: 10;
+    text-transform: capitalize;
+}
+
+.FranjaDatoContainer {
+    background-color: #F5FAFD;
+    margin-left:10;
+    margin-right:10;
+    margin-top:5;
+    margin-bottom: 5;
+    padding: 7;
+}
+
+.FranjaDato {
+    font-weight: bold;
+    font-size: 13;
+    text-align: left;
+}
+
+.FranjaDetalle {
+    color: black;
+    font-size: 11;
+    text-align: left;
+    padding-top: 5;
+}
+
+.menuIzquierda {
+    background-color:#1B2636;
+}
+
+.sideUserImage {
+    margin: 12;
+    border-radius: 100%;
+    border-style: solid;
+    border-color: white;
+    border-width: 4;
+    height: 150;
+    width: 150;
+}
+
+.sideUserName {
+  font-weight: bold;
+  font-size:18;
+  color: #FFF;
+}
+
+.logOutButton {
+    margin-top: 55;
+    border-radius: 10%;
+    background-color: #079079;
+    color: white;
+    height: 42;
+    font-size: 14;
+    width: 150;
+}
+
+.imgAlert {
+    margin: 10;    
+    height: 125;
+    width: 125;
+}
+
+.txtAlert {
+    font-weight: bold;
+    font-size:14;
+}
+
+.ServerStatus {
+    margin: 15;
+    padding: 8;
+    font-size: 26;
+    font-weight: bold;
+    color: white;
+}
+
+.Online {
+    background-color: green;
+}
+
+.Offline {
+    background-color: red;
+}

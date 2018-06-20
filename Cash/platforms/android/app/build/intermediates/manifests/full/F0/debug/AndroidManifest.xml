@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.nativescript.Cash"
+    package="net.fktech.cashmovil"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -28,20 +28,15 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="org.nativescript.Cash.provider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
-
         <activity
             android:name="com.tns.NativeScriptActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/title_activity_kimera" >
+            android:label="@string/title_activity_kimera"
+            android:theme="@style/LaunchScreenTheme" >
+            <meta-data
+                android:name="SET_THEME_ON_LAUNCH"
+                android:resource="@style/AppTheme" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,6 +44,26 @@
             </intent-filter>
         </activity>
         <activity android:name="com.tns.ErrorReportActivity" />
+        <activity
+            android:name="com.telerik.widget.feedback.SendFeedbackActivity"
+            android:label="@string/title_activity_send_feedback"
+            android:theme="@style/AppCompatTheme" >
+        </activity>
+        <activity
+            android:name="com.telerik.widget.feedback.ViewFeedbackActivity"
+            android:label="@string/title_activity_view_feedback"
+            android:theme="@style/AppCompatTheme" >
+        </activity>
+        <activity
+            android:name="com.telerik.widget.feedback.ViewFeedbackItemActivity"
+            android:label="@string/title_activity_view_feedback"
+            android:theme="@style/AppCompatTheme" >
+        </activity>
+        <activity
+            android:name="com.telerik.widget.feedback.EditDetailsActivity"
+            android:label="@string/title_activity_edit_details"
+            android:theme="@style/AppCompatTheme" >
+        </activity>
     </application>
 
 </manifest>

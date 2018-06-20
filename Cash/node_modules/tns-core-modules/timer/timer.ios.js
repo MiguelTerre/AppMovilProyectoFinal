@@ -30,11 +30,11 @@ var TimerTargetImpl = (function (_super) {
             timeoutCallbacks.delete(this.id);
         }
     };
+    TimerTargetImpl.ObjCExposedMethods = {
+        "tick": { returns: interop.types.void, params: [NSTimer] }
+    };
     return TimerTargetImpl;
 }(NSObject));
-TimerTargetImpl.ObjCExposedMethods = {
-    "tick": { returns: interop.types.void, params: [NSTimer] }
-};
 function createTimerAndGetId(callback, milliseconds, shouldRepeat) {
     timerId++;
     var id = timerId;
@@ -47,7 +47,12 @@ function createTimerAndGetId(callback, milliseconds, shouldRepeat) {
 }
 function setTimeout(callback, milliseconds) {
     if (milliseconds === void 0) { milliseconds = 0; }
-    return createTimerAndGetId(zonedCallback(callback), milliseconds, false);
+    var args = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        args[_i - 2] = arguments[_i];
+    }
+    var invoke = function () { return callback.apply(void 0, args); };
+    return createTimerAndGetId(zonedCallback(invoke), milliseconds, false);
 }
 exports.setTimeout = setTimeout;
 function clearTimeout(id) {
@@ -59,7 +64,12 @@ function clearTimeout(id) {
 exports.clearTimeout = clearTimeout;
 function setInterval(callback, milliseconds) {
     if (milliseconds === void 0) { milliseconds = 0; }
-    return createTimerAndGetId(zonedCallback(callback), milliseconds, true);
+    var args = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        args[_i - 2] = arguments[_i];
+    }
+    var invoke = function () { return callback.apply(void 0, args); };
+    return createTimerAndGetId(zonedCallback(invoke), milliseconds, true);
 }
 exports.setInterval = setInterval;
 exports.clearInterval = clearTimeout;

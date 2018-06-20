@@ -1,4 +1,4 @@
-rootProject.name = "Cash"
+rootProject.name = "cashmovil"
 include ':app', ':asbg' //,  ':runtime', ":runtime-binding-generator"
 project(':asbg').projectDir = new File('build-tools/android-static-binding-generator')
 //project(':runtime').projectDir = new File('path/to/runtime')

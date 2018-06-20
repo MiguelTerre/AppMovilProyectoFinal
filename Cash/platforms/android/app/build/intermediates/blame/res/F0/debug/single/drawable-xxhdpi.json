@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\logo.png",
+        "source": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\background.png",
+        "source": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\background.png"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\icon.png",
+        "source": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\icon.png"
+    }
+]

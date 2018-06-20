@@ -1,0 +1,42 @@
+.MainStack {
+    background-color: rgb(235, 235, 235);
+}
+
+.PageTitle {
+    background-color:  #079079;
+    color:white;
+    margin: 0;
+    padding: 10;
+    text-align: center;
+    font-size: 18;
+}
+
+.teaStore, .geaStore, .insStore {
+    padding: 10;
+    color: black;
+}
+/*
+.teaStore {
+    background-color: #3F2100;
+    color: #CEEC00;
+}
+
+.geaStore {
+    background-color: #EEB300;
+    color: white;
+}
+
+.insStore {
+    background-color: #3F3E3E;
+    color: white;
+}
+*/
+Image {
+    border-radius: 100%;
+    height: 40;
+    width: 40;
+}
+
+.lblNombreLocal {
+    padding: 10;
+}

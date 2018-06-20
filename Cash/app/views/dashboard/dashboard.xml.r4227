@@ -1,0 +1,155 @@
+<Page 
+  xmlns="http://schemas.nativescript.org/tns.xsd" 
+  xmlns:chart="nativescript-pro-ui/chart" 
+  xmlns:sd="nativescript-pro-ui/sidedrawer" class="page" loaded="pageLoaded" actionBarHidden="true">
+  <sd:RadSideDrawer>
+    <!-- side drawer content -->
+    <sd:RadSideDrawer.drawerContent>
+      <StackLayout class="sidedrawer-left menuIzquierda">
+        <Image class="sideUserImage" src="~/images/generic-user.png" stretch="aspectFill" />
+        <Label text="{{ userFullName }}" class="sideUserName" horizontalAlignment="center" />
+        <StackLayout style="margin-top: 50;">
+          <button class="logOutButton" text="Cerrar Sesión" tap="EndSession" />
+        </StackLayout>
+      </StackLayout>
+    </sd:RadSideDrawer.drawerContent>
+    <!-- The main content -->
+    <sd:RadSideDrawer.mainContent>
+      <StackLayout class="MainStack">
+        <GridLayout rows="*" columns="*">
+          <StackLayout row="0" col="0">
+            <StackLayout class="SettingsStack">
+              <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <button text="{{ selectedStore.store + ' | &#9660;' }}" tap="storeSelect" />
+                <button text="{{ selectedDate + ' | &#9660;' }}" tap="dateSelect" />
+              </StackLayout>
+            </StackLayout>
+            <TabView id="tabViewContainer" androidSelectedTabHighlightColor="#FFFFFF" selectedIndexChanged="onSelectedIndexChanged" tabBackgroundColor="#079079" selectedTabTextColor="#ffffff">
+              <TabView.items>
+                <TabViewItem title="TOTALES">
+                  <TabViewItem.view>
+                    <ScrollView swipe="checkSwipe" scroll="onScroll">
+                      <StackLayout>
+                        <StackLayout visibility="{{ !busy && data.totals == null ? 'visible' : 'collapsed' }}">
+                          <Image class="imgAlert" src="~/images/warning.png" stretch="aspectFill" horizontalAlignment="center" />
+                          <Label class="txtAlert" text="No hay datos para mostrar" textWrap="true" horizontalAlignment="center" />
+                        </StackLayout>
+                        <StackLayout visibility="{{ data.totals != null ? 'visible' : 'collapsed' }}">
+                          <!-- RESUMEN -->
+                          <StackLayout class="ChildStack">
+                            <StackLayout class="BlockContainer">
+                              <label class="BlockTitle" text="FACTURACIÓN TOTAL" />
+                              <label text="{{ '$ ' + (data.totals != null ? data.totals.amount_str : 0) }}" class="BlockData celeste" textWrap="false"></label>
+                            </StackLayout>
+                            <StackLayout class="BlockContainer">
+                              <label class="BlockTitle" text="TICKETS TOTALES" />
+                              <label text="{{ data.totals != null ? data.totals.qty : 0 }}" class="BlockData naranja" textWrap="false"></label>
+                            </StackLayout>
+                            <StackLayout class="BlockContainer">
+                              <label class="BlockTitle" text="TICKET PROMEDIO" />
+                              <label text="{{ '$ ' + (data.totals != null ? data.totals.avg_qty_str : 0) }}" class="BlockData naranja" textWrap="false"></label>
+                            </StackLayout>
+                          </StackLayout>
+                          <!-- VENTAS POR FRANJA HORARIA -->
+                          <StackLayout class="ChildStack">
+                            <StackLayout class="BlockContainer">
+                              <label class="BlockTitle" text="FACTURACIÓN HORARIA" />
+                              <!-- ESTO DEBE SALIR DINAMICAMENTE SEGUN LAS FRANJAS DE LA CONSULTA A LA API -->
+                              <Repeater items="{{ data.daypart_sales != null ? data.daypart_sales : null }}">
+                                <Repeater.itemTemplate>
+                                  <StackLayout>
+                                    <Label text="{{ daypart }}" class="FranjaTitle" textWrap="true" />
+                                    <GridLayout rows="*,*" columns="*, 70, *" class="FranjaDatoContainer">
+                                      <label text="{{ '$ ' + amount_str }}" class="FranjaDato celeste" row="0" col="0" textWrap="false"></label>
+                                      <Label text="{{ qty }}" class="FranjaDato naranja" row="0" col="1" />
+                                      <label text="{{ '$ ' + avg_qty_str }}" class="FranjaDato naranja" row="0" col="2" textWrap="false"></label>
+                                      <Label text="Facturación Total" textWrap="true" class="FranjaDetalle" row="1" col="0" />
+                                      <Label text="Tickets Totales" textWrap="true" class="FranjaDetalle" row="1" col="1" />
+                                      <Label text="Ticket Promedio" textWrap="true" class="FranjaDetalle" row="1" col="2" />
+                                    </GridLayout>
+                                  </StackLayout>
+                                </Repeater.itemTemplate>
+                              </Repeater>
+                            </StackLayout>
+                          </StackLayout>
+                          <!-- GRAFICO DE VENTAS POR HORA -->
+                          <StackLayout class="ChildStack">
+                            <StackLayout class="BlockContainer">
+                              <label class="BlockTitle" text="FACTURACIÓN POR HORA" />
+                              <StackLayout>
+                                <chart:RadCartesianChart height="250">
+                                  <chart:RadCartesianChart.series>
+                                    <chart:BarSeries seriesName="Bar" items="{{ data.hourly_sales != null ? data.hourly_sales : null }}" categoryProperty="hour" valueProperty="amount" showLabels="false" />
+                                    <chart:RadCartesianChart.horizontalAxis>
+                                      <chart:CategoricalAxis />
+                                    </chart:RadCartesianChart.horizontalAxis>
+                                    <chart:RadCartesianChart.verticalAxis>
+                                      <chart:LinearAxis labelFormat="$ %.0f" />
+                                    </chart:RadCartesianChart.verticalAxis>
+                                  </chart:RadCartesianChart.series>
+                                  <chart:RadCartesianChart.palettes>
+                                    <chart:Palette seriesName="Bar">
+                                      <chart:Palette.entries>
+                                        <chart:PaletteEntry fillColor="#079079" strokeColor="#079079" strokeWidth="5"/>
+                                      </chart:Palette.entries>
+                                    </chart:Palette>
+                                  </chart:RadCartesianChart.palettes>
+                                </chart:RadCartesianChart>
+                              </StackLayout>
+                            </StackLayout>
+                          </StackLayout>
+                        </StackLayout>
+                      </StackLayout>
+                    </ScrollView>
+                  </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="INFO LOCAL">
+                  <TabViewItem.view>
+                    <ScrollView swipe="checkSwipe" scroll="onScroll">
+                      <StackLayout>
+                        <StackLayout visibility="{{ data.conn_status == null ? 'visible' : 'collapsed' }}">
+                          <Image class="imgAlert" src="~/images/warning.png" stretch="aspectFill" horizontalAlignment="center" />
+                          <Label class="txtAlert" text="No hay datos para mostrar" textWrap="true" horizontalAlignment="center" />
+                        </StackLayout>
+                        <StackLayout class="ChildStack" visibility="{{ data.conn_status != null ? 'visible' : 'collapsed' }}">
+                          <StackLayout class="BlockContainer">
+                            <label class="BlockTitle" text="{{ data.conn_status.name }}" />
+                            <StackLayout>
+                              <GridLayout rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="*" class="FranjaDatoContainer">
+                                <Label text="Brand" textWrap="true" class="FranjaDetalle" row="0" col="0" />
+                                <label text="{{ data.conn_status.brand }}" class="FranjaDato celeste" row="1" col="0" textWrap="false"></label>
+                                <Label text="Country" textWrap="true" class="FranjaDetalle" row="2" col="0" />
+                                <label text="{{ data.conn_status.country }}" class="FranjaDato celeste" row="3" col="0" textWrap="false"></label>
+                                <Label text="Store" textWrap="true" class="FranjaDetalle" row="4" col="0" />
+                                <label text="{{ data.conn_status.store }}" class="FranjaDato celeste" row="5" col="0" textWrap="false"></label>
+                                <Label text="Public Address" textWrap="true" class="FranjaDetalle" row="8" col="0" />
+                                <label text="{{ data.conn_status.public_address }}" class="FranjaDato celeste" row="9" col="0" textWrap="false"></label>
+                                <Label text="Private Address" textWrap="true" class="FranjaDetalle" row="10" col="0" />
+                                <label text="{{ data.conn_status.private_address }}" class="FranjaDato celeste" row="11" col="0" textWrap="false"></label>
+                                <Label text="Last Connection" textWrap="true" class="FranjaDetalle" row="12" col="0" />
+                                <label text="{{ data.conn_status.last_connection }}" class="FranjaDato celeste" row="13" col="0" textWrap="false"></label>
+                                <Label text="Seconds From Last" textWrap="true" class="FranjaDetalle" row="14" col="0" />
+                                <label text="{{ data.conn_status.seconds_from_last }}" class="FranjaDato celeste" row="15" col="0" textWrap="false"></label>
+                              </GridLayout>
+                            </StackLayout>
+                          </StackLayout>
+                        </StackLayout>
+                        <StackLayout class="ServerStatus Offline" visibility="{{ (data.conn_status == null || data.conn_status.seconds_from_last > 3600) ? 'visible' : 'collapsed' }}">
+                          <Label text="SERVIDOR SIN CONEXION" textWrap="true" horizontalAlignment="center" />
+                        </StackLayout>
+                        <StackLayout class="ServerStatus Online" visibility="{{ (data.conn_status.seconds_from_last <= 3600) ? 'visible' : 'collapsed' }}">
+                          <Label text="SERVIDOR EN LINEA" textWrap="true" horizontalAlignment="center" />
+                        </StackLayout>
+                      </StackLayout>
+                    </ScrollView>
+                  </TabViewItem.view>
+                </TabViewItem>
+              </TabView.items>
+            </TabView>
+          </StackLayout>
+          <ActivityIndicator row="0" col="0" id="imgLoading" width="100" height="100" busy="true" visibility="{{ busy ? 'visible' : 'collapsed' }}" />
+        </GridLayout>
+      </StackLayout>
+    </sd:RadSideDrawer.mainContent>
+  </sd:RadSideDrawer>
+</Page>

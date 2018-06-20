@@ -20,9 +20,9 @@ var UIGestureRecognizerDelegateImpl = (function (_super) {
     UIGestureRecognizerDelegateImpl.prototype.gestureRecognizerShouldRecognizeSimultaneouslyWithGestureRecognizer = function (gestureRecognizer, otherGestureRecognizer) {
         return true;
     };
+    UIGestureRecognizerDelegateImpl.ObjCProtocols = [UIGestureRecognizerDelegate];
     return UIGestureRecognizerDelegateImpl;
 }(NSObject));
-UIGestureRecognizerDelegateImpl.ObjCProtocols = [UIGestureRecognizerDelegate];
 var recognizerDelegateInstance = UIGestureRecognizerDelegateImpl.new();
 var UIGestureRecognizerImpl = (function (_super) {
     __extends(UIGestureRecognizerImpl, _super);
@@ -58,11 +58,11 @@ var UIGestureRecognizerImpl = (function (_super) {
             callback.call(this._context, args);
         }
     };
+    UIGestureRecognizerImpl.ObjCExposedMethods = {
+        "recognize": { returns: interop.types.void, params: [UIGestureRecognizer] }
+    };
     return UIGestureRecognizerImpl;
 }(NSObject));
-UIGestureRecognizerImpl.ObjCExposedMethods = {
-    "recognize": { returns: interop.types.void, params: [UIGestureRecognizer] }
-};
 var GesturesObserver = (function (_super) {
     __extends(GesturesObserver, _super);
     function GesturesObserver(target, callback, context) {
@@ -92,8 +92,8 @@ var GesturesObserver = (function (_super) {
     GesturesObserver.prototype._attach = function (target, type) {
         var _this = this;
         this._detach();
-        if (target && target.nativeView && target.nativeView.addGestureRecognizer) {
-            var nativeView = target.nativeView;
+        if (target && target.nativeViewProtected && target.nativeViewProtected.addGestureRecognizer) {
+            var nativeView = target.nativeViewProtected;
             if (type & gestures_common_1.GestureTypes.tap) {
                 nativeView.addGestureRecognizer(this._createRecognizer(gestures_common_1.GestureTypes.tap));
             }
@@ -109,7 +109,7 @@ var GesturesObserver = (function (_super) {
             }
             if (type & gestures_common_1.GestureTypes.pan) {
                 nativeView.addGestureRecognizer(this._createRecognizer(gestures_common_1.GestureTypes.pan, function (args) {
-                    _this._executeCallback(_getPanData(args, target.nativeView));
+                    _this._executeCallback(_getPanData(args, target.nativeViewProtected));
                 }));
             }
             if (type & gestures_common_1.GestureTypes.swipe) {
@@ -140,11 +140,11 @@ var GesturesObserver = (function (_super) {
         }
     };
     GesturesObserver.prototype._detach = function () {
-        if (this.target && this.target.nativeView) {
+        if (this.target && this.target.nativeViewProtected) {
             for (var name_1 in this._recognizers) {
                 if (this._recognizers.hasOwnProperty(name_1)) {
                     var item = this._recognizers[name_1];
-                    this.target.nativeView.removeGestureRecognizer(item.recognizer);
+                    this.target.nativeViewProtected.removeGestureRecognizer(item.recognizer);
                     item.recognizer = null;
                     item.target = null;
                 }
@@ -252,7 +252,7 @@ function _getSwipeDirection(direction) {
 }
 function _getPinchData(args) {
     var recognizer = args.ios;
-    var center = recognizer.locationInView(args.view.nativeView);
+    var center = recognizer.locationInView(args.view.nativeViewProtected);
     return {
         type: args.type,
         view: args.view,
@@ -341,7 +341,7 @@ var Pointer = (function () {
     Object.defineProperty(Pointer.prototype, "location", {
         get: function () {
             if (!this._location) {
-                this._location = this.ios.locationInView(this._view.nativeView);
+                this._location = this.ios.locationInView(this._view.nativeViewProtected);
             }
             return this._location;
         },
@@ -403,10 +403,10 @@ var TouchGestureEventData = (function () {
         return this._allPointers;
     };
     TouchGestureEventData.prototype.getX = function () {
-        return this.getMainPointer().locationInView(this.view.nativeView).x;
+        return this.getMainPointer().locationInView(this.view.nativeViewProtected).x;
     };
     TouchGestureEventData.prototype.getY = function () {
-        return this.getMainPointer().locationInView(this.view.nativeView).y;
+        return this.getMainPointer().locationInView(this.view.nativeViewProtected).y;
     };
     return TouchGestureEventData;
 }());

@@ -1,7 +1,19 @@
 [
     {
-        "name": "nativescript-social-share",
-        "directory": "..\\..\\node_modules\\nativescript-social-share"
+        "name": "nativescript-dom",
+        "directory": "..\\..\\node_modules\\nativescript-dom"
+    },
+    {
+        "name": "nativescript-intl",
+        "directory": "..\\..\\node_modules\\nativescript-intl"
+    },
+    {
+        "name": "nativescript-pro-ui",
+        "directory": "..\\..\\node_modules\\nativescript-pro-ui"
+    },
+    {
+        "name": "nativescript-screen-orientation",
+        "directory": "..\\..\\node_modules\\nativescript-screen-orientation"
     },
     {
         "name": "nativescript-theme-core",

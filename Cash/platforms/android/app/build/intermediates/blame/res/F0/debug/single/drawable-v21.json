@@ -1,34 +1,50 @@
 [
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\57292f94e9813b6ca8ee44327656a77cb6207f93\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\pressable_item_background.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\f3f80493a40a585cfbf6f1a85b6483b30e2418e6\\output\\res\\drawable-v21\\pressable_item_background.xml"
     },
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\avd_hide_password.xml",
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\avd_hide_password.xml",
         "source": "C:\\Users\\Miguel\\.android\\build-cache\\57292f94e9813b6ca8ee44327656a77cb6207f93\\output\\res\\drawable-v21\\avd_hide_password.xml"
     },
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\avd_show_password.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\57292f94e9813b6ca8ee44327656a77cb6207f93\\output\\res\\drawable-v21\\avd_show_password.xml"
-    },
-    {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\notification_action_background.xml",
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\notification_action_background.xml",
         "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\design_password_eye.xml",
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\57292f94e9813b6ca8ee44327656a77cb6207f93\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_bg_active.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\ba706df1e48a60851ab0ddd3c85408310bb3e688\\output\\res\\drawable-v21\\autocomplete_bg_active.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_bg_normal.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\ba706df1e48a60851ab0ddd3c85408310bb3e688\\output\\res\\drawable-v21\\autocomplete_bg_normal.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\design_password_eye.xml",
         "source": "C:\\Users\\Miguel\\.android\\build-cache\\57292f94e9813b6ca8ee44327656a77cb6207f93\\output\\res\\drawable-v21\\design_password_eye.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\avd_show_password.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\57292f94e9813b6ca8ee44327656a77cb6207f93\\output\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_focusable_bg.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\ba706df1e48a60851ab0ddd3c85408310bb3e688\\output\\res\\drawable-v21\\autocomplete_focusable_bg.xml"
     }
 ]

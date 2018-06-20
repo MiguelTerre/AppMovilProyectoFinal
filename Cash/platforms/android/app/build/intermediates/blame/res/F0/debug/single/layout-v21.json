@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_action.xml"
     },
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_template_custom_big.xml",
         "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_action.xml",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_action.xml"
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     }
 ]

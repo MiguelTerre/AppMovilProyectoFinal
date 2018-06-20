@@ -73,9 +73,6 @@ var layout;
         else if (mode === layout.AT_MOST) {
             text += "AT_MOST ";
         }
-        else {
-            text += mode + " ";
-        }
         text += size;
         return text;
     }
@@ -141,4 +138,12 @@ function merge(left, right, compareFunc) {
     return result;
 }
 exports.merge = merge;
+function hasDuplicates(arr) {
+    return arr.length !== eliminateDuplicates(arr).length;
+}
+exports.hasDuplicates = hasDuplicates;
+function eliminateDuplicates(arr) {
+    return Array.from(new Set(arr));
+}
+exports.eliminateDuplicates = eliminateDuplicates;
 //# sourceMappingURL=utils-common.js.map

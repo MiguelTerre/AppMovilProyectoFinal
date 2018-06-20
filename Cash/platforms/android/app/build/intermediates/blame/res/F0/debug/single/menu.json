@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\send_feedback_activity_menu.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\cd763c54e5f364c4f167aef8f4c52972872362c3\\output\\res\\menu\\send_feedback_activity_menu.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\edit_details.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\cd763c54e5f364c4f167aef8f4c52972872362c3\\output\\res\\menu\\edit_details.xml"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\view_feedback_items_activity_menu.xml",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\cd763c54e5f364c4f167aef8f4c52972872362c3\\output\\res\\menu\\view_feedback_items_activity_menu.xml"
+    }
+]

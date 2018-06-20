@@ -1,14 +1,14 @@
 [
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png",
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png",
         "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Miguel\\StudioProjects\\NativeScript-Projects\\Cash\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png",
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png",
         "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\__sales-ui\\development\\0.0.0\\src\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\Miguel\\.android\\build-cache\\262ff706fb3e2dee9f5b7f27c1fadc42510e9004\\output\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     }
 ]

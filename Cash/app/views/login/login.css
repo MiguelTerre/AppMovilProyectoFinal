@@ -1,19 +1,47 @@
-Page {
-    background-color: white;
-    font-size: 17;
-}
-TextField {
-    margin: 10;
-    padding: 10;
-    border: solid;
-}
 Image {
-    margin-top: 20;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 80;
+    margin: 3;
+    border-radius: 100%;
+    border-style: solid;
+    border-color: white;
+    border-width: 4;
+    height: 75;
+    width: 75;
 }
+
+Label {
+    color: white;
+    text-align: left;
+}
+
 Button {
-    margin: 10;
-    padding: 10;
+    margin-top: 55;
+    border-radius: 25%;
+    background-color: #079079;
+    color: white;
+    height: 42;
+    font-size: 14;
+}
+
+TextField {
+    margin-top:5;
+    margin-bottom: 26;
+    background-color: white;
+    border-radius: 25%;
+    color: black;
+    text-align: center;
+    height: 45;
+    font-size: 14;
+}
+
+.form {    
+    margin-top: 10;
+    margin-left: 40;
+    margin-right: 40;
+    margin-bottom: 10;
+    text-align: center;
+}
+
+.logos{
+    margin-top: 30;
+    margin-bottom: 30;
 }

@@ -20,16 +20,16 @@ var SliderChangeHandlerImpl = (function (_super) {
             slider_common_1.valueProperty.nativeValueChange(owner, sender.value);
         }
     };
+    SliderChangeHandlerImpl.ObjCExposedMethods = {
+        'sliderValueChanged': { returns: interop.types.void, params: [UISlider] }
+    };
     return SliderChangeHandlerImpl;
 }(NSObject));
-SliderChangeHandlerImpl.ObjCExposedMethods = {
-    'sliderValueChanged': { returns: interop.types.void, params: [UISlider] }
-};
 var Slider = (function (_super) {
     __extends(Slider, _super);
     function Slider() {
         var _this = _super.call(this) || this;
-        _this.nativeView = _this._ios = UISlider.new();
+        _this.nativeViewProtected = _this._ios = UISlider.new();
         _this._ios.minimumValue = 0;
         _this._ios.maximumValue = _this.maxValue;
         _this._changeHandler = SliderChangeHandlerImpl.initWithOwner(new WeakRef(_this));

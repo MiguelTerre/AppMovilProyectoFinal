@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tab_view_common_1 = require("./tab-view-common");
 var text_base_1 = require("../text-base");
 var image_source_1 = require("../../image-source");
+var profiling_1 = require("../../profiling");
 __export(require("./tab-view-common"));
 var UITabBarControllerImpl = (function (_super) {
     __extends(UITabBarControllerImpl, _super);
@@ -58,9 +59,9 @@ var UITabBarControllerDelegateImpl = (function (_super) {
             owner._onViewControllerShown(viewController);
         }
     };
+    UITabBarControllerDelegateImpl.ObjCProtocols = [UITabBarControllerDelegate];
     return UITabBarControllerDelegateImpl;
 }(NSObject));
-UITabBarControllerDelegateImpl.ObjCProtocols = [UITabBarControllerDelegate];
 var UINavigationControllerDelegateImpl = (function (_super) {
     __extends(UINavigationControllerDelegateImpl, _super);
     function UINavigationControllerDelegateImpl() {
@@ -91,9 +92,9 @@ var UINavigationControllerDelegateImpl = (function (_super) {
             owner._onViewControllerShown(viewController);
         }
     };
+    UINavigationControllerDelegateImpl.ObjCProtocols = [UINavigationControllerDelegate];
     return UINavigationControllerDelegateImpl;
 }(NSObject));
-UINavigationControllerDelegateImpl.ObjCProtocols = [UINavigationControllerDelegate];
 function updateItemTitlePosition(tabBarItem) {
     if (typeof tabBarItem.setTitlePositionAdjustment === "function") {
         tabBarItem.setTitlePositionAdjustment({ horizontal: 0, vertical: -20 });
@@ -112,12 +113,11 @@ var TabViewItem = (function (_super) {
     }
     TabViewItem.prototype.setViewController = function (controller) {
         this._iosViewController = controller;
-        this._nativeView = this.nativeView = controller.view;
-        tab_view_common_1.initNativeView(this);
+        this.setNativeView(this._nativeView = controller.view);
     };
     TabViewItem.prototype.disposeNativeView = function () {
         this._iosViewController = undefined;
-        this.nativeView = undefined;
+        this.setNativeView(undefined);
     };
     TabViewItem.prototype._update = function () {
         var parent = this.parent;
@@ -152,7 +152,7 @@ var TabView = (function (_super) {
         _this._navBarHeight = 0;
         _this._iconsCache = {};
         _this._ios = UITabBarControllerImpl.initWithOwner(new WeakRef(_this));
-        _this.nativeView = _this._ios.view;
+        _this.nativeViewProtected = _this._ios.view;
         _this._delegate = UITabBarControllerDelegateImpl.initWithOwner(new WeakRef(_this));
         _this._moreNavigationControllerDelegate = UINavigationControllerDelegateImpl.initWithOwner(new WeakRef(_this));
         return _this;
@@ -275,7 +275,7 @@ var TabView = (function (_super) {
         return image;
     };
     TabView.prototype.onMeasure = function (widthMeasureSpec, heightMeasureSpec) {
-        var nativeView = this.nativeView;
+        var nativeView = this.nativeViewProtected;
         if (nativeView) {
             var width = tab_view_common_1.layout.getMeasureSpecSize(widthMeasureSpec);
             var widthMode = tab_view_common_1.layout.getMeasureSpecMode(widthMeasureSpec);
@@ -376,6 +376,9 @@ var TabView = (function (_super) {
             }
         }
     };
+    __decorate([
+        profiling_1.profile
+    ], TabView.prototype, "onLoaded", null);
     return TabView;
 }(tab_view_common_1.TabViewBase));
 exports.TabView = TabView;
@@ -383,18 +386,16 @@ function getTitleAttributesForStates(tabView) {
     var result = {};
     var font = tabView.style.fontInternal.getUIFont(UIFont.systemFontOfSize(10));
     var tabItemTextColor = tabView.style.tabTextColor;
-    if (tabItemTextColor instanceof tab_view_common_1.Color) {
-        result.normalState = (_a = {},
-            _a[UITextAttributeTextColor] = tabItemTextColor.ios,
-            _a[NSFontAttributeName] = font,
-            _a);
+    var textColor = tabItemTextColor instanceof tab_view_common_1.Color ? tabItemTextColor.ios : null;
+    result.normalState = (_a = {}, _a[NSFontAttributeName] = font, _a);
+    if (textColor) {
+        result.normalState[UITextAttributeTextColor] = textColor;
     }
     var tabSelectedItemTextColor = tabView.style.selectedTabTextColor;
-    if (tabSelectedItemTextColor instanceof tab_view_common_1.Color) {
-        result.selectedState = (_b = {},
-            _b[UITextAttributeTextColor] = tabSelectedItemTextColor.ios,
-            _b[NSFontAttributeName] = font,
-            _b);
+    var selectedTextColor = tabItemTextColor instanceof tab_view_common_1.Color ? tabSelectedItemTextColor.ios : null;
+    result.selectedState = (_b = {}, _b[NSFontAttributeName] = font, _b);
+    if (selectedTextColor) {
+        result.selectedState[UITextAttributeTextColor] = selectedTextColor;
     }
     return result;
     var _a, _b;

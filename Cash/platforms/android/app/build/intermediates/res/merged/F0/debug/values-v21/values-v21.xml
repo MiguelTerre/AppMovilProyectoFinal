@@ -5,9 +5,11 @@
     <dimen name="notification_content_margin_start">0dp</dimen>
     <dimen name="notification_main_column_padding_top">0dp</dimen>
     <dimen name="notification_media_narrow_margin">12dp</dimen>
+    <style name="AppCompatTheme" parent="Base.V21.Theme.AppCompat.Light">
+    </style>
     <style name="AppTheme" parent="AppThemeBase">
         <item name="android:datePickerStyle">@style/SpinnerDatePicker</item>
-        <item name="android:timePickerStyle">@style/SpinnerTimePicker</item>       
+        <item name="android:timePickerStyle">@style/SpinnerTimePicker</item>
     </style>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>

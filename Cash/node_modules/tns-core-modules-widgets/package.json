@@ -1,43 +1,46 @@
 {
-  "_from": "tns-core-modules-widgets@3.0.1",
-  "_id": "tns-core-modules-widgets@3.0.1",
+  "_args": [
+    [
+      "tns-core-modules-widgets@3.4.0",
+      "C:\\__sales-ui\\development\\0.0.0\\src"
+    ]
+  ],
+  "_from": "tns-core-modules-widgets@3.4.0",
+  "_id": "tns-core-modules-widgets@3.4.0",
   "_inBundle": false,
-  "_integrity": "sha1-g1hSzVkxQYCNLTMlWAa5N4GHzyA=",
+  "_integrity": "sha512-WEtjDRTjjKB+C1NhY1CJSNyhK9DPCYzBgM+yKgq5AmphK/QdQEMAP1U2ttOv8yWWfsvLZGOnzyLCzcyeoG0Gfw==",
   "_location": "/tns-core-modules-widgets",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "tns-core-modules-widgets@3.0.1",
+    "raw": "tns-core-modules-widgets@3.4.0",
     "name": "tns-core-modules-widgets",
     "escapedName": "tns-core-modules-widgets",
-    "rawSpec": "3.0.1",
+    "rawSpec": "3.4.0",
     "saveSpec": null,
-    "fetchSpec": "3.0.1"
+    "fetchSpec": "3.4.0"
   },
   "_requiredBy": [
     "/tns-core-modules"
   ],
-  "_resolved": "https://registry.npmjs.org/tns-core-modules-widgets/-/tns-core-modules-widgets-3.0.1.tgz",
-  "_shasum": "835852cd593141808d2d33255806b9378187cf20",
-  "_spec": "tns-core-modules-widgets@3.0.1",
-  "_where": "C:\\NativeScriptsApps\\Cash\\node_modules\\tns-core-modules",
+  "_resolved": "https://registry.npmjs.org/tns-core-modules-widgets/-/tns-core-modules-widgets-3.4.0.tgz",
+  "_spec": "3.4.0",
+  "_where": "C:\\__sales-ui\\development\\0.0.0\\src",
   "author": {
     "name": "NativeScript team"
   },
   "bugs": {
     "url": "https://github.com/NativeScript/android-widgets/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
   "description": "Native widgets used in the NativeScript framework.",
   "homepage": "https://github.com/NativeScript/android-widgets#readme",
   "license": "Apache-2.0",
   "name": "tns-core-modules-widgets",
   "nativescript": {
     "platforms": {
-      "ios": "2.0.0",
-      "android": "2.0.0"
+      "ios": "3.0.0",
+      "android": "3.0.0"
     }
   },
   "repository": {
@@ -47,5 +50,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "3.0.1"
+  "version": "3.4.0"
 }

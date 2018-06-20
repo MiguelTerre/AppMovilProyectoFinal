@@ -1,32 +1,35 @@
 {
-  "_from": "tns-core-modules@~3.0.0",
-  "_id": "tns-core-modules@3.0.1",
+  "_args": [
+    [
+      "tns-core-modules@3.4.1",
+      "C:\\__sales-ui\\development\\0.0.0\\src"
+    ]
+  ],
+  "_from": "tns-core-modules@3.4.1",
+  "_id": "tns-core-modules@3.4.1",
   "_inBundle": false,
-  "_integrity": "sha1-CM17csmOb1Y/u6U2ZopQwE3Rpf0=",
+  "_integrity": "sha512-sz/yTmoW7WyDPpr4JEC+trlfiEI14X365jGF//tMCT/G6ISzANr43wc17fgbGH1UA1XbKzujbAl0xPNssRHVUA==",
   "_location": "/tns-core-modules",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "tns-core-modules@~3.0.0",
+    "raw": "tns-core-modules@3.4.1",
     "name": "tns-core-modules",
     "escapedName": "tns-core-modules",
-    "rawSpec": "~3.0.0",
+    "rawSpec": "3.4.1",
     "saveSpec": null,
-    "fetchSpec": "~3.0.0"
+    "fetchSpec": "3.4.1"
   },
   "_requiredBy": [
-    "/nativescript-template-groceries"
+    "/"
   ],
-  "_resolved": "https://registry.npmjs.org/tns-core-modules/-/tns-core-modules-3.0.1.tgz",
-  "_shasum": "08cd7b72c98e6f563fbba536668a50c04dd1a5fd",
-  "_spec": "tns-core-modules@~3.0.0",
-  "_where": "C:\\NativeScriptsApps\\Cash\\node_modules\\nativescript-template-groceries",
-  "bundleDependencies": false,
+  "_resolved": "https://registry.npmjs.org/tns-core-modules/-/tns-core-modules-3.4.1.tgz",
+  "_spec": "3.4.1",
+  "_where": "C:\\__sales-ui\\development\\0.0.0\\src",
   "dependencies": {
-    "tns-core-modules-widgets": "3.0.1"
+    "tns-core-modules-widgets": "3.4.0"
   },
-  "deprecated": false,
   "description": "Telerik NativeScript Core Modules",
   "devDependencies": {
     "@types/node": "~7.0.5",
@@ -35,6 +38,7 @@
   "files": [
     "**/*.d.ts",
     "**/*.js",
+    "**/package.json",
     "!android17.d.ts",
     "!ios.d.ts",
     "!bin/",
@@ -51,14 +55,24 @@
   "name": "tns-core-modules",
   "nativescript": {
     "platforms": {
-      "ios": "2.1.1",
-      "android": "2.1.1"
+      "ios": "3.0.0",
+      "android": "3.0.0"
     }
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NativeScript/NativeScript/commit/77c3ea8dc30847721006743c25a0f2d7ca1bf6e7"
+    "url": "https://github.com/NativeScript/NativeScript/commit/533630c4a64f77a799c5806d61851489f50ab807"
+  },
+  "snapshot": {
+    "android": {
+      "tns-java-classes": {
+        "modules": [
+          "ui/frame/activity",
+          "ui/frame/fragment"
+        ]
+      }
+    }
   },
   "typings": "tns-core-modules.d.ts",
-  "version": "3.0.1"
+  "version": "3.4.1"
 }
